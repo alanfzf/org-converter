@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolvePackageJsonImports": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "paths": {
+      "#src/*": ["./src/*"]
+    }
+  }
+}
