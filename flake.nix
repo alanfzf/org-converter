@@ -23,32 +23,18 @@
           config.allowUnfree = true;
         };
 
-        mkScript =
-          name: text:
-          let
-            script = pkgs.writeShellScriptBin name text;
-          in
-          script;
+        packages = import ./nix/packages.nix {
+          inherit pkgs self system;
+        };
 
-        scripts = [ ];
+        devShell = import ./nix/devshell.nix {
+          inherit pkgs;
+        };
 
-        devPackages = with nixpkgs; [
-          pkgs.nodejs_22
-          pkgs.texliveMedium
-          pkgs.pandoc
-        ];
-
-        postShellHook = "";
       in
       {
-        devShells = {
-          default = pkgs.mkShell {
-            name = "node-dev-shell";
-            nativeBuildInputs = scripts;
-            packages = devPackages;
-            postShellHook = postShellHook;
-          };
-        };
+        packages = packages;
+        devShells.default = devShell;
       }
     );
 }
