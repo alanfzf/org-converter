@@ -4,7 +4,7 @@
     "description": "simple org converter",
     "main": "src/index.js",
     "scripts": {
-        "run": "node dist/index.js",
+        "app": "node ./dist/index.js",
         "build": "tsc"
     },
     "imports": {

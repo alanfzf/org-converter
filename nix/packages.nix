@@ -58,8 +58,9 @@ in
     config = {
       WorkingDir = "${appDir}";
       Cmd = [
-        "sleep"
-        "infinity"
+        "npm"
+        "run"
+        "app"
       ];
       ExposedPorts = {
         "${appPort}/tcp" = { };
